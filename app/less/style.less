@@ -1,12 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic');
 @font-main: 'Roboto', sans-serif;
 
+@font-face {
+    font-family: 'PeaceSans';
+    src: url('../fonts/PeaceSans/PeaceSans.eot');
+    src: local('☺'), url('../fonts/PeaceSans/PeaceSans.woff') format('woff'),
+    url('../fonts/PeaceSans/PeaceSans.ttf') format('truetype'),
+    url('../fonts/PeaceSans/PeaceSans.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 // Рамки
 @blue: 1px solid blue;
 @green: 1px solid green;
 @red: 1px solid red;
 
 @color-gray: #999;
+
+body{
+   font-family: @font-main;
+}
 
 
 main
