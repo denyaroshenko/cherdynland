@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="[[*description]]">
+    <title>Заголовок страницы</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+  </head>
+  <body>
+  <header></header>
+  <main>
+    <div id="accommodation" class="block">
+      <h3 class="block__header">Проживание на базе в с. Камгорт</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label for="house_rent">
+            Аренда дома (количество суток)
+            <div class="counter">
+              <input type="number" id="number_of_days" data-price="2000" data-sale-factor="0.95" data-sale-border="3"  value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label for="payment_per_person">
+            Количество человек
+            <div class="counter">
+              <input type="number" id="number_of_person" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label id="overnight_stay">
+            Число ночевок
+            <div class="counter">
+              <input type="number" id="number_of_nights" data-price="2000" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" id="rent_block" class="block_total">
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="block__header">Питание</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label>
+            3-х разовое питание (количество человек)
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Завтрак (количество человек)
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Обед (количество человек)
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Ужин (количество человек)
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда кухни (количество суток)
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total">
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="block__header">Аренда на базе в с. Камгорт</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label>
+            Беседка (количество суток)
+            <div class="counter">
+              <input type="number" data-price="500" data-sale-factor="0.9" data-sale-border="3" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Баня (количество часов)
+            <div class="counter">
+              <input type="number" data-price="500"  value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total">
+        </div>
+      </div>
+    </div>
+
+    <!-- Аренда автомобиля с водителем -->
+    <div class="block">
+      <h3 class="block__header">Аренда автомобиля с водителем</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label>
+            Аренда автомобиля Toyota, в радиусе 50 км от базы
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда автомобиля ГАЗ 33081 Егерь 2, в радиусе 50 км от базы
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label for=""><select name="" id="">
+            Прицеп к автомобилю
+              <option value="0">Нет</option>
+              <option value="1">Да</option>
+            </select>
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total">
+        </div>
+      </div>
+    </div>
+
+    <div id="place" class="block">
+      <h3 class="block__header">Аренда автомобиля для заброски групп с водителем</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label for="box1">
+            <input type="checkbox" data-price-1="6000" data-price-2="8000">с. Валай, р. Березовая
+          </label>
+          <label for="box2">
+            <input type="checkbox" data-price-1="7000" data-price-2="9000">с. Вижай, р. Березовая
+          </label>
+          <label for="box3">
+            <input type="checkbox" data-price-1="10000" data-price-2="14000">Татарский мост, р. Березовая
+          </label>
+          <label for="box4">
+            <input type="checkbox" data-price-1="3000" data-price-2="4500">с. Вижаиха, р. Колва
+          </label>
+          <label for="box4">
+            <input type="checkbox" data-price-1="0" data-price-2="40000">с. Талово, р. Колва
+          </label>
+          <label for="box4">
+            <input type="checkbox" data-price-1="3000" data-price-2="4500">Мост верхний, р. Низьва
+          </label>
+          <label>
+            Количество человек
+            <div class="counter">
+              <input type="number" id="number_of_person_in_car" data-price="0" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Прицеп к автомобилю
+            <select id="trailer">
+              <option data-price-1="0" data-price-2="0" data-price-factor="1">Нет</option>
+              <option data-price-1="0" data-price-2="0" data-price-factor="1.1">Да</option>
+            </select>
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total_6">
+        </div>
+      </div>
+    </div>
+
+    <!-- Аренда лодки -->
+    <div class="block">
+      <h3 class="block__header">Аренда лодки</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label>
+            Аренда лодки с инструктором-гидом для заброски, далее 30 км от базы
+            <select id="with_instructor">
+              <option value="0">Нет</option>
+              <option value="1">Да</option>
+            </select>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда лодки для рыбалки без инструктора, в радиусе 30 км от базы
+            <select id="without_instructor">
+              <option value="0">Нет</option>
+              <option value="1">Да</option>
+            </select>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Количество человек
+            <div class="counter">
+              <input type="number" id="number_of_person" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label for="payment_per_person">
+            Количество суток
+            <div class="counter">
+              <input type="number" id="number_of_person" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total">
+        </div>
+      </div>
+    </div>
+
+    <!-- Аренда снегохода -->
+    <div class="block">
+      <h3 class="block__header">Аренда снегохода</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label>
+            Аренда снегохода
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки в радиусе 10 км.
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки на Чусовском озере
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки с. Булдырья
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки на р. Джурич
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки на р.Березовая
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда снегохода для рыбалки на верховьях р.Колва
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Охота с использованием снегохода, с водителем-егерем, до 5 человек
+            <div class="counter">
+              <input type="number" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total">
+        </div>
+      </div>
+    </div>
+
+    <div id="excursion" class="block">
+      <h3 class="block__header">Экскурсии</h3>
+      <div class="block__body">
+        <div class="block__body-left">
+          <label for="box1">
+            <input type="checkbox" value="900">Экскурсия по Чердыни
+          </label>
+          <label for="box2">
+            <input type="checkbox" value="2500">Экскурсия Чердынь - Ныроб
+          </label>
+          <label for="box3">
+            <input type="checkbox" value="750">Краеведческий музей
+          </label>
+        </div>
+        <div class="block__body-right">
+          Стоимость данного раздела: <input type="number" class="block_total_excursion">
+        </div>
+      </div>
+    </div>
+
+
+    <p>Итого: <input type="number" id="total"> руб.</p>
+  </main>
+<footer></footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

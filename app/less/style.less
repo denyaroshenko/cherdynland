@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic');
+@font-main: 'Roboto', sans-serif;
+
+// Рамки
+@blue: 1px solid blue;
+@green: 1px solid green;
+@red: 1px solid red;
+
+@color-gray: #999;
+
+
+main
+{
+    width: 50%;
+}
+
+.disabled{
+  color: #ededed;
+}
+
+.block
+{
+    display: flex;
+    flex-direction: column;
+    &__header
+    {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+    &__body
+    {
+        display: flex;
+        flex-direction: row;
+        &-left
+        {
+          width: 70%;
+            display: flex;
+            flex-direction: column;
+
+            padding: 20px;
+
+            border-right: 1px solid #999;
+
+            justify-content: space-between;
+        }
+        &-right
+        {
+            display: flex;
+            flex-direction: column;
+
+            padding: 20px;
+
+            align-content: center;
+        }
+    }
+}
+
+label
+{
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+input[type=number]
+{
+    width: 40px;
+    padding: 5px;
+
+    border: 0;
+    border-radius: 4px;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+    {
+        margin: 0;
+
+        -webkit-appearance: none;
+    }
+}
+
+.counter
+{
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid @color-gray;
+    border-radius: 4px;
+}
+
+.incdec
+{
+    display: flex;
+    flex-direction: column;
+
+    border-left: 1px solid @color-gray;
+}
+
+.btn
+{
+    display: flex;
+
+    width: 10px;
+    height: 10px;
+    padding: 3px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid @color-gray;
+    border-radius: 0;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.btn + .btn
+{
+    border-bottom: 0;
+}
