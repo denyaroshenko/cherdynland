@@ -240,21 +240,13 @@
     </div>
 
     <!-- Аренда лодки -->
-    <div class="block">
+    <div id="boat_rent" class="block">
       <h3 class="block__header">Аренда лодки</h3>
       <div class="block__body">
         <div class="block__body-left">
           <label>
             Аренда лодки с инструктором-гидом для заброски, далее 30 км от базы
-            <select id="with_instructor">
-              <option value="0">Нет</option>
-              <option value="1">Да</option>
-            </select>
-            <input type="number" class="sum_item" value="0">
-          </label>
-          <label>
-            Аренда лодки для рыбалки без инструктора, в радиусе 30 км от базы
-            <select id="without_instructor">
+            <select data-price-1="7000" data-price-2="10000" id="with_instructor">
               <option value="0">Нет</option>
               <option value="1">Да</option>
             </select>
@@ -263,7 +255,7 @@
           <label>
             Количество человек
             <div class="counter">
-              <input type="number" id="number_of_person" data-price="500" value="0">
+              <input type="number" id="boatRent_1_numPerson" data-price="500" value="0">
               <div class="incdec">
                 <span class="btn inc">+</span>
                 <span class="btn dec">-</span>
@@ -274,7 +266,37 @@
           <label for="payment_per_person">
             Количество суток
             <div class="counter">
-              <input type="number" id="number_of_person" data-price="500" value="0">
+              <input type="number" id="boatRent_numDays" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Аренда лодки для рыбалки без инструктора, в радиусе 30 км от базы
+            <select data-price-1="2000" data-price-2="3000" id="without_instructor">
+              <option value="0">Нет</option>
+              <option value="1">Да</option>
+            </select>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label>
+            Количество человек
+            <div class="counter">
+              <input type="number" id="boatRent_2_numPerson" data-price="500" value="0">
+              <div class="incdec">
+                <span class="btn inc">+</span>
+                <span class="btn dec">-</span>
+              </div>
+            </div>
+            <input type="number" class="sum_item" value="0">
+          </label>
+          <label for="payment_per_person">
+            Количество часов
+            <div class="counter">
+              <input type="number" id="boatRent_numHours" data-price="500" value="0">
               <div class="incdec">
                 <span class="btn inc">+</span>
                 <span class="btn dec">-</span>
@@ -284,7 +306,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total">
+          Стоимость данного раздела: <input type="number" id="boatRent_total" class="block_total">
         </div>
       </div>
     </div>
@@ -404,7 +426,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total_excursion">
+          Стоимость данного раздела: <input type="number" id="block_total_excursion" class="block_total">
         </div>
       </div>
     </div>
