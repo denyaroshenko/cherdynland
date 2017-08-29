@@ -14,7 +14,7 @@ function roll_numbers(){
 	});
 }
 
-// Вычисление строки с счетчиком
+// Расчет строки со счетчиком
 function calc_line($this){
 	var input = $this.parent().parent().find('input[type=number]');
 	var number = input.val();
@@ -22,7 +22,7 @@ function calc_line($this){
 	$this.parent().parent().parent().find('input[type=number].sum_item').val(parseInt(number*price));
 }
 
-// Вычисление суммы блока
+// Расчет суммы блока
 function sum_block($this){
 	var block_total = 0;
 	var sum_item = $this.closest('.block__body-left').find('label').find('.sum_item');
@@ -41,24 +41,7 @@ function sum_total(){
 	$('#total').val(total);
 }
 
-// incdec
-$(document).ready(function() {
-
-	$('.inc').click(function () {
-		var $input = $(this).parent().parent().find('input');
-		$input.val(parseInt($input.val()) + 1);
-		$input.change();
-
-		calc_line($(this));
-
-		// if ($('#number_of_days') != 0) {
-		// 	$('#number_of_nights').prop('disabled',true);
-		// }
-
-		sum_block($(this));
-		$('.spincrement:eq(4)').spincrement();
-
-		// // Скидки
+// // Скидки
 		// var sale = 0;
 		// var sale_factor = input.attr('data-sale-factor');
 		// var sale_border = input.attr('data-sale-border');
@@ -74,6 +57,19 @@ $(document).ready(function() {
 		// 		$('#rent_block').val(sale)
 		// 	}
 		// });
+
+// incdec
+$(document).ready(function() {
+
+	$('.inc').click(function () {
+		var $input = $(this).parent().parent().find('input');
+		$input.val(parseInt($input.val()) + 1);
+		$input.change();
+
+		calc_line($(this));
+
+		sum_block($(this));
+		$('.spincrement:eq(4)').spincrement();
 
 		sum_total();
 		return false;
@@ -93,7 +89,23 @@ $(document).ready(function() {
 		return false;
 	});
 
-	//Рассчет чекбоксов
+	$('.onlyinc').click(function () {
+		var $input = $(this).parent().parent().find('input');
+		$input.val(parseInt($input.val()) + 1);
+		$input.change();
+		return false;
+	});
+
+	$('.onlydec').click(function () {
+		var $input = $(this).parent().parent().find('input');
+		var count = parseInt($input.val()) - 1;
+		count = count < 0 ? 0 : count;
+		$input.val(count);
+		$input.change();
+		return false;
+	});
+
+	//Рассчет чекбоксов для заброски
 	$(function(){
 		$("#place").click(function(){
 			var sum=0;
@@ -130,58 +142,53 @@ $(document).ready(function() {
 	var boatRent_1_sum = 0;
 	var boatRent_2_sum = 0;
 
+	function sum_boatRent(){
+		$('#boatRent_total').val(boatRent_1_sum+boatRent_2_sum);
+	}
+
 	// Рассчет селекта выбора лодки с инструктором
 	var boatRent_1_price_1 = $("#with_instructor").attr('data-price-1');
 	var boatRent_1_price_2 = $("#with_instructor").attr('data-price-2');
-	$("#with_instructor").change(function(){
+
+	$(".onlyinc, .onlydec, select").click(function(){
 		var numberOfPerson = $('#boatRent_1_numPerson').val(); //количество человек
 		var numberOfDays = $('#boatRent_numDays').val(); //количество дней
 
 		if ($("#with_instructor").val() == 1) {
+			console.log(numberOfPerson);
 			if (numberOfPerson <= 2) {
-				// console.log(boatRent_1_price_1*numberOfDays);
-				boatRent_1_sum += boatRent_1_price_1*numberOfDays;
+				boatRent_1_sum = boatRent_1_price_1*numberOfDays;
 			} else {
-				// console.log(boatRent_1_price_2*numberOfDays);
-				boatRent_1_sum += boatRent_1_price_2*numberOfDays;
+				boatRent_1_sum = boatRent_1_price_2*numberOfDays;
 			}
 		} else{
 			boatRent_1_sum = 0;
 		}
 		console.log(boatRent_1_sum);
+		sum_boatRent();
+		sum_total();
 	});
 
 	// Рассчет селекта выбора лодки без инструктора
 	var boatRent_2_price_1 = $("#without_instructor").attr('data-price-1');
 	var boatRent_2_price_2 = $("#without_instructor").attr('data-price-2');
-	$("#without_instructor").change(function(){
+
+	$(".onlyinc, .onlydec, select").click(function(){
 		var numberOfPerson = $('#boatRent_2_numPerson').val(); //количество человек
 		var numberOfHours = $('#boatRent_numHours').val(); //количество часов
 
 		if ($("#without_instructor").val() == 1) {
 			if (numberOfPerson <= 2) {
-				// console.log(boatRent_2_price_1*numberOfHours);
-				boatRent_2_sum += boatRent_2_price_1*numberOfHours;
+				boatRent_2_sum = boatRent_2_price_1*numberOfHours;
 			} else {
-				// console.log(boatRent_2_price_2*numberOfHours);
-				boatRent_2_sum += boatRent_2_price_2*numberOfHours;
+				boatRent_2_sum = boatRent_2_price_2*numberOfHours;
 			}
 		} else {
 			boatRent_2_sum = 0;
 		}
 		console.log(boatRent_2_sum);
-	});
-
-	$(function(){
-		$("select").change(function(){
-				$('#boatRent_total').val(boatRent_1_sum+boatRent_2_sum);
-		});
+		sum_boatRent();
+		sum_total();
 	});
 
 });
-
-// $(function(){
-// 	if(block1__payment_per_person>3){
-// 			$("label[for=toyota]").addClass("disabled")
-// 		}
-// 	});
