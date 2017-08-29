@@ -16,7 +16,9 @@
 @green: 1px solid green;
 @red: 1px solid red;
 
+// Цвета
 @color-gray: #999;
+@color-disabled: #dadada;
 
 body{
    font-family: @font-main;
@@ -29,10 +31,22 @@ main
 }
 
 .disabled{
-  color: #999;
+  color: @color-disabled;
   .counter{
+    border: 1px solid @color-disabled;
     input{
-        color: #999;
+        outline: none;
+        color: @color-disabled;
+    }
+  }
+  .incdec{
+    pointer-events: none;
+    border-left: 1px solid @color-disabled;
+    .btn{
+        border-bottom: 1px solid @color-disabled;
+    }
+    .btn+.btn{
+        border-bottom: 0;
     }
   }
 }

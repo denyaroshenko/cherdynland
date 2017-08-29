@@ -61,6 +61,25 @@ function sum_total(){
 // incdec
 $(document).ready(function() {
 
+// БЛОК 1 - Проживание на базе в с.Камгорт
+	function block1_disable1() {
+		console.log($('#block1_numberOfDays').val());
+		if ($('#block1_numberOfDays').val() > 0) {
+			$('#label_nights').addClass('disabled');
+		} else {
+			$('#label_nights').removeClass('disabled');
+		}
+	}
+
+	function block1_disable2() {
+		console.log($('#block1_numberOfDays').val());
+		if ($('#block1_numberOfNights').val() > 0) {
+			$('#label_days').addClass('disabled');
+		} else {
+			$('#label_days').removeClass('disabled');
+		}
+	}
+
 	$('.inc').click(function () {
 		var $input = $(this).parent().parent().find('input');
 		$input.val(parseInt($input.val()) + 1);
@@ -72,6 +91,8 @@ $(document).ready(function() {
 		$('.spincrement:eq(4)').spincrement();
 
 		sum_total();
+		block1_disable1();
+		block1_disable2();
 		return false;
 	});
 
@@ -82,6 +103,8 @@ $(document).ready(function() {
 		$input.val(count);
 		$input.change();
 
+		block1_disable1();
+		block1_disable2();
 		calc_line($(this));
 		sum_block($(this));
 		sum_total();
@@ -105,6 +128,8 @@ $(document).ready(function() {
 		return false;
 	});
 
+
+
 	//Рассчет чекбоксов для заброски
 	$(function(){
 		$("#place").click(function(){
@@ -120,7 +145,7 @@ $(document).ready(function() {
 				}
 			});
 			sum *= $("#trailer option:selected").attr('data-price-factor');
-			$('#palce_total').val(sum);
+			$('#palce_total').val(Math.round(sum));
 			sum_total();
 		});
 	});
