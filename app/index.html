@@ -7,6 +7,12 @@
     <title>Заголовок страницы</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="assets/css/style.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.spincrement.min.js"></script>
+    <script>
+      $(".spincrement").spincrement();
+    </script>
   </head>
   <body>
   <header></header>
@@ -50,7 +56,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" id="rent_block" class="block_total">
+          Стоимость данного раздела: <input type="number" id="rent_block" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -115,7 +121,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total">
+          Стоимость данного раздела: <input type="number" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -147,7 +153,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total">
+          Стоимость данного раздела: <input type="number" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -187,7 +193,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total">
+          Стоимость данного раздела: <input type="number" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -196,28 +202,28 @@
       <h3 class="block__header">Аренда автомобиля для заброски групп с водителем</h3>
       <div class="block__body">
         <div class="block__body-left">
-          <label for="box1">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="6000" data-price-2="8000">с. Валай, р. Березовая
           </label>
-          <label for="box2">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="7000" data-price-2="9000">с. Вижай, р. Березовая
           </label>
-          <label for="box3">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="10000" data-price-2="14000">Татарский мост, р. Березовая
           </label>
-          <label for="box4">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="3000" data-price-2="4500">с. Вижаиха, р. Колва
           </label>
-          <label for="box4">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="0" data-price-2="40000">с. Талово, р. Колва
           </label>
-          <label for="box4">
+          <label class="checkbox">
             <input type="checkbox" data-price-1="3000" data-price-2="4500">Мост верхний, р. Низьва
           </label>
           <label>
             Количество человек
             <div class="counter">
-              <input type="number" id="number_of_person_in_car" data-price="0" value="0">
+              <input type="number" id="place_numberOfPerson" data-price="0" value="0">
               <div class="incdec">
                 <span class="btn inc">+</span>
                 <span class="btn dec">-</span>
@@ -234,7 +240,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total_6">
+          Стоимость данного раздела: <input type="number" id="palce_total" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -306,7 +312,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" id="boatRent_total" class="block_total">
+          Стоимость данного раздела: <input type="number" id="boatRent_total" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -406,7 +412,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" class="block_total">
+          Стоимость данного раздела: <input type="number" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -426,7 +432,7 @@
           </label>
         </div>
         <div class="block__body-right">
-          Стоимость данного раздела: <input type="number" id="block_total_excursion" class="block_total">
+          Стоимость данного раздела: <input type="number" id="block_total_excursion" class="block_total" value="0">
         </div>
       </div>
     </div>
@@ -435,7 +441,8 @@
     <p>Итого: <input type="number" id="total"> руб.</p>
   </main>
 <footer></footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>

@@ -1,31 +1,17 @@
-var price__house_rent = 2000,
-price__payment_per_person = 500,
-price__overnight_stay = 300,
-
-price__full_food = 700,
-price__breakfest = 150,
-price__lunch = 200,
-price__dinner = 350,
-price__litchen_rent = 500,
-
-price__bath = 500,
-price__alcove = 3000,
-
-price__toyota = 500,
-price__gaz = 800
-;
-
 function calc(price, number){
 	return(price*number);
 }
 
-function total(){
-   var block_total = 0;
-   $("input.sum_item").each(function(){
-      block_total = block_total+$(this).val();
-   });
-   $(this).parent().parent().parent().parent().parent().parent().find('span.total').val(block_total);
-   // return block_total;
+// Прокручивание цифр
+function roll_numbers(){
+	var currentNumber = $('#total').text();
+	$({numberValue: currentNumber}).animate({numberValue: 10000}, {
+		duration: 500,
+		easing: 'linear',
+		step: function() {
+			$('#dynamic-number').text(Math.ceil(this.numberValue));
+		}
+	});
 }
 
 // Вычисление строки с счетчиком
@@ -70,6 +56,7 @@ $(document).ready(function() {
 		// }
 
 		sum_block($(this));
+		$('.spincrement:eq(4)').spincrement();
 
 		// // Скидки
 		// var sale = 0;
@@ -109,16 +96,20 @@ $(document).ready(function() {
 	//Рассчет чекбоксов
 	$(function(){
 		$("#place").click(function(){
-			var sum=0; // начальное значение можно указать любое
+			var sum=0;
 			$('#place :checked').each(function(){
-				if ($('#number_of_person_in_car').val() <= 4) {
-					sum+=parseInt($(this).attr('data-price-1'));
+				var price_1 = $(this).attr('data-price-1');
+				var price_2 = $(this).attr('data-price-2');
+				var numberOfPerson = $('#place_numberOfPerson').val();
+				if (numberOfPerson <= 4) {
+					sum+=parseInt(price_1);
 				} else {
-					sum+=parseInt($(this).attr('data-price-2'));
+					sum+=parseInt(price_2);
 				}
 			});
 			sum *= $("#trailer option:selected").attr('data-price-factor');
-			$('.block_total_6').val(sum);
+			$('#palce_total').val(sum);
+			sum_total();
 		});
 	});
 
