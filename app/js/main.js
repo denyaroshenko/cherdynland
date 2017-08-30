@@ -22,6 +22,63 @@ function calc_line($this){
 	$this.parent().parent().parent().find('input[type=number].sum_item').val(parseInt(number*price));
 }
 
+//Скидка на 1 блок
+function sale_block1(){
+	if (($('#block1_numberOfDays').val() >= 3) || ((($('#number_of_person').val() >= 10)) & ($('#block1_numberOfNights').val() == 0))) {
+		$('#block1_sale').val(0.95);
+	} else{
+		if (($('#block1_numberOfNights').val() >= 10) || ($('#number_of_person').val() >= 10)) {
+			$('#block1_sale').val(0.9);
+		} else {
+			$('#block1_sale').val(1);
+		}
+	}
+}
+
+// Скидка на 3 блок
+function sale_block3(){
+	if (($('#block3_numberOfDays').val() >= 3) & ($('#block3_numberOfHours').val() < 6)){
+		$('#block3_sale').val(0.9);
+	} else {
+		if ($('#block3_numberOfHours').val() >= 6) {
+			$('#block3_sale').val(0.85);
+		} else {
+			$('#block3_sale').val(1);
+		}
+	}
+}
+
+// Скидка на 4 блок
+function sale_block4(){
+	if (($('#block4_numberOfHours_toyota').val() >= 8) & ($('#block4_numberOfHours_gaz').val() < 8)){
+		$('#block4_sale').val(0.95);
+	} else {
+		if ($('#block4_numberOfHours_gaz').val() >= 8) {
+			$('#block4_sale').val(0.9);
+		} else {
+			$('#block4_sale').val(1);
+		}
+	}
+}
+
+// Скидка на 6 блок
+function sale_block6(){
+	if ($('#block6_numberOfHours').val() >= 5){
+		$('#block6_sale').val(0.9);
+	} else {
+		$('#block6_sale').val(1);
+	}
+}
+
+// Скидка на 7 блок
+function sale_block7(){
+	if (($('#block7_numberOfHours').val() >= 5) || ($('#block7_numberOfDays_1').val() >= 5) || ($('#block7_numberOfDays_2').val() >= 5) || ($('#block7_numberOfDays_3').val() >= 5) || ($('#block7_numberOfDays_4').val() >= 5) || ($('#block7_numberOfDays_5').val() >= 5) || ($('#block7_numberOfDays_6').val() >= 5) || ($('#block7_numberOfDays_7').val() >= 5)){
+		$('#block7_sale').val(0.9);
+	} else {
+		$('#block7_sale').val(1);
+	}
+}
+
 // Расчет суммы блока
 function sum_block($this){
 	var block_total = 0;
@@ -29,7 +86,17 @@ function sum_block($this){
 	sum_item.each(function(){
 		block_total += parseInt($(this).val());
 	});
-	$this.closest('.block__body').find('.block__body-right').find('input').val(block_total);
+	var sale = $this.closest('.block__body').find('.block__body-right').find('input.sale').val();
+	var sum_sale = block_total - block_total*sale;
+	console.log(sum_sale);
+	if (sum_sale != 0) {
+		$this.closest('.block__body').find('.block__body-right').find('div').find('input.sum_sale').val(sum_sale);
+		$this.closest('.block__body').find('.block__body-right').find('div').css('display', 'block');
+	} else {
+		$this.closest('.block__body').find('.block__body-right').find('div').find('input.sum_sale').val('');
+		$this.closest('.block__body').find('.block__body-right').find('div').css('display', 'none');
+	}
+	$this.closest('.block__body').find('.block__body-right').find('input.block_total').val(block_total*sale);
 }
 
 // Расчет итога
@@ -41,22 +108,6 @@ function sum_total(){
 	$('#total').val(total);
 }
 
-// // Скидки
-		// var sale = 0;
-		// var sale_factor = input.attr('data-sale-factor');
-		// var sale_border = input.attr('data-sale-border');
-		// // console.log(sale_factor, sale_border);
-		// $(function(){
-		// 	if (($('#number_of_person').val() >= 10) || ($('#number_of_days').val() >= 3)) {
-		// 		sale = ($('#rent_block').val())*0.95;
-		// 		$('#rent_block').val(sale)
-		// 	// console.log(sale);
-		// 	}
-		// 	if (($('#number_of_person').val() >= 10) || ($('#number_of_nights').val() >= 10)) {
-		// 		sale = ($('#rent_block').val())*0.9;
-		// 		$('#rent_block').val(sale)
-		// 	}
-		// });
 
 // incdec
 $(document).ready(function() {
@@ -86,9 +137,11 @@ $(document).ready(function() {
 		$input.change();
 
 		calc_line($(this));
-
-		sum_block($(this));
-		$('.spincrement:eq(4)').spincrement();
+		sale_block1();
+		sale_block3();
+		sale_block4();
+		sale_block7();
+		sum_block($(this),1);
 
 		sum_total();
 		block1_disable1();
@@ -103,10 +156,14 @@ $(document).ready(function() {
 		$input.val(count);
 		$input.change();
 
+		sale_block1();
+		sale_block3();
+		sale_block4();
+		sale_block7();
 		block1_disable1();
 		block1_disable2();
 		calc_line($(this));
-		sum_block($(this));
+		sum_block($(this),1);
 		sum_total();
 
 		return false;
@@ -116,6 +173,8 @@ $(document).ready(function() {
 		var $input = $(this).parent().parent().find('input');
 		$input.val(parseInt($input.val()) + 1);
 		$input.change();
+
+		sale_block6();
 		return false;
 	});
 
@@ -125,6 +184,8 @@ $(document).ready(function() {
 		count = count < 0 ? 0 : count;
 		$input.val(count);
 		$input.change();
+
+		sale_block6();
 		return false;
 	});
 
@@ -138,7 +199,7 @@ $(document).ready(function() {
 				var price_1 = $(this).attr('data-price-1');
 				var price_2 = $(this).attr('data-price-2');
 				var numberOfPerson = $('#place_numberOfPerson').val();
-				if (numberOfPerson <= 4) {
+				if (numberOfPerson <= 3) {
 					sum+=parseInt(price_1);
 				} else {
 					sum+=parseInt(price_2);
@@ -162,7 +223,7 @@ $(document).ready(function() {
 		});
 	});
 
-	// Расчет аренды лодки ///////////////////////////////////////////////////////
+	// Расчет аренды лодки
 	var boatRent_total = 0;
 	var boatRent_1_sum = 0;
 	var boatRent_2_sum = 0;
@@ -180,7 +241,6 @@ $(document).ready(function() {
 		var numberOfDays = $('#boatRent_numDays').val(); //количество дней
 
 		if ($("#with_instructor").val() == 1) {
-			console.log(numberOfPerson);
 			if (numberOfPerson <= 2) {
 				boatRent_1_sum = boatRent_1_price_1*numberOfDays;
 			} else {
@@ -189,7 +249,6 @@ $(document).ready(function() {
 		} else{
 			boatRent_1_sum = 0;
 		}
-		console.log(boatRent_1_sum);
 		sum_boatRent();
 		sum_total();
 	});
@@ -211,7 +270,6 @@ $(document).ready(function() {
 		} else {
 			boatRent_2_sum = 0;
 		}
-		console.log(boatRent_2_sum);
 		sum_boatRent();
 		sum_total();
 	});
