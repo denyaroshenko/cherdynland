@@ -99,6 +99,7 @@ function sum_total(){
 
 // incdec
 $(document).ready(function() {
+	var $this = $(this);
 
 // БЛОК 1 - Проживание на базе в с.Камгорт
 	function block1_disable1() {
@@ -258,6 +259,41 @@ $(document).ready(function() {
 		}
 		sum_boatRent();
 		sum_total();
+	});
+
+	// Формирование резюме для отправки
+	$('#send').click(function () {
+		$('.resume').text('');
+		$('.block').each(function() {
+			var block_name = $(this).find('h3').text();
+			var block_sum = $(this).find('.block_total').text();
+			console.log(block_sum);
+			// Выводим блок, если его сумма не 0
+			if (block_sum > 0) {
+				$('.resume').append('<div>' + block_name + '</div>');
+				$(this).find('label').each(function(){
+					var title = $(this).find('.block_body__title').text();
+				//если счетчик
+				if ($(this).hasClass('checkbox')) {
+					var value = $(this).find('input:checked').val();
+					var sum = $(this).find('input:checked').val();
+				}
+				// если чекбоксы
+				else{
+					var value = $(this).find('.counter').find('input').val();
+					var sum = $(this).find('.sum_item').val();
+				}
+
+				if (value > 0) {
+					$('.resume').append('<div>--- ' + title + ' - ' + value + ' - ' + sum +' руб.</div>');
+				}
+			})
+			}
+		});
+
+		$('.resume').append('<div>Итоговая сумма:' + $('#total').text() +' руб.</div>');
+		$('textarea').text($('.resume').text());
+		return false;
 	});
 
 });
