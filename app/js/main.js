@@ -2,18 +2,6 @@ function calc(price, number){
 	return(price*number);
 }
 
-// Прокручивание цифр
-function roll_numbers(){
-	var currentNumber = $('#total').text();
-	$({numberValue: currentNumber}).animate({numberValue: 10000}, {
-		duration: 500,
-		easing: 'linear',
-		step: function() {
-			$('#dynamic-number').text(Math.ceil(this.numberValue));
-		}
-	});
-}
-
 // Расчет строки со счетчиком
 function calc_line($this){
 	var input = $this.parent().parent().find('input[type=number]');
@@ -88,24 +76,24 @@ function sum_block($this){
 	});
 	var sale = $this.closest('.block__body').find('.block__body-right').find('input.sale').val();
 	var sum_sale = block_total - block_total*sale;
-	console.log(sum_sale);
 	if (sum_sale != 0) {
-		$this.closest('.block__body').find('.block__body-right').find('div').find('input.sum_sale').val(sum_sale);
-		$this.closest('.block__body').find('.block__body-right').find('div').css('display', 'block');
+		$this.closest('.block__body').find('.block__body-right').find('.sale_label').find('input.sum_sale').val(sum_sale);
+		$this.closest('.block__body').find('.block__body-right').find('.sale_label').css('display', 'block');
 	} else {
-		$this.closest('.block__body').find('.block__body-right').find('div').find('input.sum_sale').val('');
-		$this.closest('.block__body').find('.block__body-right').find('div').css('display', 'none');
+		$this.closest('.block__body').find('.block__body-right').find('.sale_label').find('input.sum_sale').val('');
+		$this.closest('.block__body').find('.block__body-right').find('.sale_label').css('display', 'none');
 	}
 	$this.closest('.block__body').find('.block__body-right').find('input.block_total').val(block_total*sale);
+	$this.closest('.block__body').find('.block__body-right').find('span.block_total').text(block_total*sale);
 }
 
 // Расчет итога
 function sum_total(){
 	var total = 0;
 	$('.block_total').each(function(){
-		total += 1*($(this).val());
+		total += 1*($(this).text());
 	});
-	$('#total').val(total);
+	$('#total').text(total);
 }
 
 
@@ -114,7 +102,6 @@ $(document).ready(function() {
 
 // БЛОК 1 - Проживание на базе в с.Камгорт
 	function block1_disable1() {
-		console.log($('#block1_numberOfDays').val());
 		if ($('#block1_numberOfDays').val() > 0) {
 			$('#label_nights').addClass('disabled');
 		} else {
@@ -123,7 +110,6 @@ $(document).ready(function() {
 	}
 
 	function block1_disable2() {
-		console.log($('#block1_numberOfDays').val());
 		if ($('#block1_numberOfNights').val() > 0) {
 			$('#label_days').addClass('disabled');
 		} else {
@@ -206,7 +192,7 @@ $(document).ready(function() {
 				}
 			});
 			sum *= $("#trailer option:selected").attr('data-price-factor');
-			$('#palce_total').val(Math.round(sum));
+			$('#palce_total').text(Math.round(sum));
 			sum_total();
 		});
 	});
@@ -218,7 +204,7 @@ $(document).ready(function() {
 			$('#excursion :checked').each(function(){
 				sum+=parseInt($(this).val());
 			});
-			$('#block_total_excursion').val(sum);
+			$('#block_total_excursion').text(sum);
 			sum_total();
 		});
 	});
@@ -229,7 +215,7 @@ $(document).ready(function() {
 	var boatRent_2_sum = 0;
 
 	function sum_boatRent(){
-		$('#boatRent_total').val(boatRent_1_sum+boatRent_2_sum);
+		$('#boatRent_total').text(boatRent_1_sum+boatRent_2_sum);
 	}
 
 	// Рассчет селекта выбора лодки с инструктором
