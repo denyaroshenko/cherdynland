@@ -21,7 +21,7 @@
         <div class="block__body">
           <div class="block__body-left">
             <label id="label_days">
-              Аренда дома (количество суток)
+              <span class="block_body__title">Аренда дома (количество суток)</span>
               <div class="counter">
                 <input readonly type="number" id="block1_numberOfDays" data-price="2000" data-sale-factor="0.95" data-sale-border="3"  value="0">
                 <div class="incdec">
@@ -32,7 +32,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label for="number_of_person">
-              Количество человек
+              <span class="block_body__title">Количество человек</span>
               <div class="counter">
                 <input readonly type="number" id="number_of_person" data-price="500" value="0">
                 <div class="incdec">
@@ -43,7 +43,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label id="label_nights">
-              Число ночевок
+              <span class="block_body__title">Число ночевок</span>
               <div class="counter">
                 <input readonly type="number" id="block1_numberOfNights" data-price="300" value="0">
                 <div class="incdec">
@@ -60,7 +60,6 @@
             <div class="sale_label">
               Скидка: <input type="number" readonly class="sum_sale"> руб.
             </div>
-            <!-- <input readonly type="number" id="rent_block" class="block_total" value="0"> -->
             <span class="sum_block"><span class="block_total">0</span> руб.</span>
           </div>
         </div>
@@ -70,7 +69,7 @@
         <div class="block__body">
           <div class="block__body-left">
             <label>
-              3-х разовое питание (количество человек)
+              <span class="block_body__title">3-х разовое питание (количество человек)</span>
               <div class="counter">
                 <input readonly type="number" data-price="700" value="0">
                 <div class="incdec">
@@ -81,7 +80,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Завтрак (количество человек)
+              <span class="block_body__title">Завтрак (количество человек)</span>
               <div class="counter">
                 <input readonly type="number" data-price="150" value="0">
                 <div class="incdec">
@@ -92,7 +91,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Обед (количество человек)
+              <span class="block_body__title">Обед (количество человек)</span>
               <div class="counter">
                 <input readonly type="number" data-price="200" value="0">
                 <div class="incdec">
@@ -103,7 +102,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Ужин (количество человек)
+              <span class="block_body__title">Ужин (количество человек)</span>
               <div class="counter">
                 <input readonly type="number" data-price="350" value="0">
                 <div class="incdec">
@@ -114,7 +113,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда кухни (количество суток)
+              <span class="block_body__title">Аренда кухни (количество суток)</span>
               <div class="counter">
                 <input readonly type="number" data-price="500" value="0">
                 <div class="incdec">
@@ -137,7 +136,7 @@
         <div class="block__body">
           <div class="block__body-left">
             <label>
-              Беседка (количество суток)
+              <span class="block_body__title">Беседка (количество суток)</span>
               <div class="counter">
                 <input readonly id="block3_numberOfDays" type="number" data-price="500" data-sale-factor="0.9" data-sale-border="3" value="0">
                 <div class="incdec">
@@ -148,7 +147,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Баня (количество часов)
+              <span class="block_body__title">Баня (количество часов)</span>
               <div class="counter">
                 <input readonly id="block3_numberOfHours" type="number" data-price="1000"  value="0">
                 <div class="incdec">
@@ -175,7 +174,7 @@
         <div class="block__body">
           <div class="block__body-left">
             <label>
-              Аренда автомобиля Toyota, в радиусе 50 км от базы
+              <span class="block_body__title">Аренда автомобиля Toyota, в радиусе 50 км от базы</span>
               <div class="counter">
                 <input readonly id="block4_numberOfHours_toyota" type="number" data-price="500" value="0">
                 <div class="incdec">
@@ -186,7 +185,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда автомобиля ГАЗ 33081 Егерь 2, в радиусе 50 км от базы
+              <span class="block_body__title">Аренда автомобиля ГАЗ 33081 Егерь 2, в радиусе 50 км от базы</span>
               <div class="counter">
                 <input readonly id="block4_numberOfHours_gaz" type="number" data-price="800" value="0">
                 <div class="incdec">
@@ -219,25 +218,31 @@
         <div class="block__body">
           <div class="block__body-left">
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="6000" data-price-2="8000">с. Валай, р. Березовая
+              <input readonly type="checkbox" data-price-1="6000" data-price-2="8000">
+              <span class="block_body__title">с. Валай, р. Березовая</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="7000" data-price-2="9000">с. Вижай, р. Березовая
+              <input readonly type="checkbox" data-price-1="7000" data-price-2="9000">
+              <span class="block_body__title">с. Вижай, р. Березовая</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="10000" data-price-2="14000">Татарский мост, р. Березовая
+              <input readonly type="checkbox" data-price-1="10000" data-price-2="14000">
+              <span class="block_body__title">Татарский мост, р. Березовая</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="3000" data-price-2="4500">с. Вижаиха, р. Колва
+              <input readonly type="checkbox" data-price-1="3000" data-price-2="4500">
+              <span class="block_body__title">с. Вижаиха, р. Колва</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="40000" data-price-2="40000">с. Талово, р. Колва
+              <input readonly type="checkbox" data-price-1="40000" data-price-2="40000">
+              <span class="block_body__title">с. Талово, р. Колва</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" data-price-1="3000" data-price-2="4500">Мост верхний, р. Низьва
+              <input readonly type="checkbox" data-price-1="3000" data-price-2="4500">
+              <span class="block_body__title">Мост верхний, р. Низьва</span>
             </label>
             <label>
-              Количество человек
+              <span class="block_body__title">Количество человек</span>
               <div class="counter">
                 <input readonly type="number" id="place_numberOfPerson" data-price="0" value="0">
                 <div class="incdec">
@@ -248,7 +253,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Прицеп к автомобилю
+              <span class="block_body__title">Прицеп к автомобилю</span>
               <select id="trailer">
                 <option data-price-1="0" data-price-2="0" data-price-factor="1">Нет</option>
                 <option data-price-1="0" data-price-2="0" data-price-factor="1.1">Да</option>
@@ -275,7 +280,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Количество человек
+              <span class="block_body__title">Количество человек</span>
               <div class="counter">
                 <input readonly type="number" id="boatRent_1_numPerson" data-price="500" value="0">
                 <div class="incdec">
@@ -286,7 +291,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Количество суток
+              <span class="block_body__title">Количество суток</span>
               <div class="counter">
                 <input readonly type="number" id="boatRent_numDays" data-price="500" value="0">
                 <div class="incdec">
@@ -305,7 +310,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Количество человек
+              <span class="block_body__title">Количество человек</span>
               <div class="counter">
                 <input readonly type="number" id="boatRent_2_numPerson" data-price="500" value="0">
                 <div class="incdec">
@@ -316,7 +321,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Количество часов
+              <span class="block_body__title">Количество часов</span>
               <div class="counter">
                 <input readonly id="boatRent_numHours" type="number" id="boatRent_numHours" data-price="500" value="0">
                 <div class="incdec">
@@ -343,7 +348,7 @@
         <div class="block__body">
           <div class="block__body-left">
             <label>
-              Аренда снегохода
+              <span class="block_body__title">Аренда снегохода</span>
               <div class="counter">
                 <input readonly id="block7_numberOfHours" type="number" data-price="3000" value="0">
                 <div class="incdec">
@@ -354,7 +359,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки в радиусе 10 км.
+              <span class="block_body__title">Аренда снегохода для рыбалки в радиусе 10 км.</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_1" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -365,7 +370,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки на Чусовском озере
+              <span class="block_body__title">Аренда снегохода для рыбалки на Чусовском озере</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_2" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -376,7 +381,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки с. Булдырья
+              <span class="block_body__title">Аренда снегохода для рыбалки с. Булдырья</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_3" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -387,7 +392,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки на р. Джурич
+              <span class="block_body__title">Аренда снегохода для рыбалки на р. Джурич</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_4" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -398,7 +403,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки на р.Березовая
+              <span class="block_body__title">Аренда снегохода для рыбалки на р.Березовая</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_5" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -409,7 +414,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Аренда снегохода для рыбалки на верховьях р.Колва
+              <span class="block_body__title">Аренда снегохода для рыбалки на верховьях р.Колва</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_6" type="number" data-price="7000" value="0">
                 <div class="incdec">
@@ -420,7 +425,7 @@
               <input readonly type="number" class="sum_item" value="0">
             </label>
             <label>
-              Охота с использованием снегохода, с водителем-егерем, до 5 человек
+              <span class="block_body__title">Охота с использованием снегохода, с водителем-егерем, до 5 человек</span>
               <div class="counter">
                 <input readonly id="block7_numberOfDays_7" type="number" data-price="10000" value="0">
                 <div class="incdec">
@@ -446,13 +451,16 @@
         <div class="block__body">
           <div class="block__body-left">
             <label class="checkbox">
-              <input readonly type="checkbox" value="900">Экскурсия по Чердыни
+              <input readonly type="checkbox" value="900">
+              <span class="block_body__title">Экскурсия по Чердыни</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" value="2500">Экскурсия Чердынь - Ныроб
+              <input readonly type="checkbox" value="2500">
+              <span class="block_body__title">Экскурсия Чердынь - Ныроб</span>
             </label>
             <label class="checkbox">
-              <input readonly type="checkbox" value="750">Краеведческий музей
+              <input readonly type="checkbox" value="750">
+              <span class="block_body__title">Краеведческий музей</span>
             </label>
           </div>
           <div class="block__body-right">
@@ -462,7 +470,7 @@
         </div>
       </div>
       <div class="bottom_total">
-        <a href="#" class="calc_send">Отправить заявку</a>
+        <a href="#" id="send" class="calc_send">Отправить заявку</a>
         <div class="sum_total__resume">
           <div class="sum_total__label">Итоговая сумма:</div>
           <div class="sum_total__price">
@@ -474,6 +482,71 @@
       <!-- /Контент -->
   </main>
 <footer></footer>
+
+<div class="h_callme action" data-event="callme">Заказать звонок</div>
+
+<div class="popup-zakaz popup">
+  <div class="popup-close"></div>
+  <div class="popup-title">
+    <span>Заказать тур</span>: <div class="popup-title-name"></div>
+  </div>
+  <div class="popup-body"><div role="form" class="wpcf7" id="wpcf7-f82-o2" lang="ru-RU" dir="ltr">
+    <div class="screen-reader-response"></div>
+    <form action="/calculator/#wpcf7-f82-o2" method="post" class="wpcf7-form" novalidate="novalidate">
+      <div style="display: none;">
+        <input type="hidden" name="_wpcf7" value="82">
+        <input type="hidden" name="_wpcf7_version" value="4.8">
+        <input type="hidden" name="_wpcf7_locale" value="ru_RU">
+        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f82-o2">
+        <input type="hidden" name="_wpcf7_container_post" value="0">
+        <input type="hidden" name="_wpcf7_nonce" value="d8aa95010d">
+      </div>
+      <p>
+        <span class="wpcf7-form-control-wrap f_name">
+          <input type="text" name="f_name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Ваше имя">
+        </span>
+        <span class="wpcf7-form-control-wrap f_tel">
+          <input type="tel" name="f_tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Контактный телефон">
+        </span>
+        <span class="wpcf7-form-control-wrap date-zaezd">
+          <input type="text" name="date-zaezd" value="" size="40" class="wpcf7-form-control wpcf7-date hasDatepicker" placeholder="Дата заезда" id="dp1504152976539">
+        </span><span class="wpcf7-form-control-wrap date-viezd">
+        <input type="text" name="date-viezd" value="" size="40" class="wpcf7-form-control wpcf7-date hasDatepicker" placeholder="Дата выезда" id="dp1504152976541">
+      </span>
+      <span class="wpcf7-form-control-wrap f_pitanie">
+        <select name="f_pitanie" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+          <option value="Питание">Питание</option>
+          <option value="Да">Да</option>
+          <option value="Нет">Нет</option>
+        </select>
+      </span>
+
+      <span class="wpcf7-form-control-wrap f_number">
+        <select name="f_number" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+          <option value="Дети">Дети</option>
+          <option value="Нет">Нет</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </span>
+
+      <div class="resume"></div>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <span class="wpcf7-form-control-wrap c_posit">
+        <input type="text" name="c_posit" value="" size="40" class="wpcf7-form-control wpcf7-text c_popup-hide" aria-invalid="false">
+      </span>
+
+      <input type="submit" value="Отправить заявку" class="wpcf7-form-control wpcf7-submit">
+      <span class="ajax-loader">
+      </span>
+    </p>
+    <div class="wpcf7-response-output wpcf7-display-none"></div>
+    </form>
+    </div>
+  </div>
+</div>
 
 <script src="assets/js/main.js"></script>
 
