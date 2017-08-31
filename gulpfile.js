@@ -68,11 +68,11 @@ gulp.task('html:build', function () {
 });
 
 // конвертируем LESS в CSS
-gulp.task('css:build', function() {  
+gulp.task('css:build', function() {
   gulp.src(path.src.less)
   	//Конвертируем LESS в CSS
     .pipe(less())
-	
+
 	//Очистка CSS от повторений и поиск неиспользуемых стилей
     /*.pipe(uncss({
         //html: [path.src.html]
@@ -98,7 +98,7 @@ gulp.task('css:build', function() {
 // Объединение и минификация JS
 gulp.task("js:build", function() {
   return gulp.src(path.src.js)
-    .pipe(rename("main.js"))
+    .pipe(rename("calculator.js"))
     .pipe(uglify())
     .pipe(gulp.dest(path.build.js));
 });

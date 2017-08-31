@@ -264,13 +264,14 @@ $(document).ready(function() {
 	// Формирование резюме для отправки
 	$('#send').click(function () {
 		$('.resume').text('');
+		$('.overlay').css('display', 'block');
+		$('#application-form').css('display', 'block');
 		$('.block').each(function() {
 			var block_name = $(this).find('h3').text();
 			var block_sum = $(this).find('.block_total').text();
-			console.log(block_sum);
 			// Выводим блок, если его сумма не 0
 			if (block_sum > 0) {
-				$('.resume').append('<div>' + block_name + '</div>');
+				$('.resume').append('<div class="resume__block_title">' + block_name + '</div>');
 				$(this).find('label').each(function(){
 					var title = $(this).find('.block_body__title').text();
 				//если счетчик
@@ -285,13 +286,13 @@ $(document).ready(function() {
 				}
 
 				if (value > 0) {
-					$('.resume').append('<div>--- ' + title + ' - ' + value + ' - ' + sum +' руб.</div>');
+					$('.resume').append('<div>' + title + ' - ' + value + ' - ' + sum +' руб.</div>');
 				}
 			})
 			}
 		});
 
-		$('.resume').append('<div>Итоговая сумма:' + $('#total').text() +' руб.</div>');
+		$('.resume').append('<div class="resume__total">Итоговая сумма: ' + $('#total').text() +' руб.</div>');
 		$('textarea').text($('.resume').text());
 		return false;
 	});
